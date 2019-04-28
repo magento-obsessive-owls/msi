@@ -40,8 +40,4 @@
         <plugin name="set_data_to_legacy_catalog_inventory_at_bulk_unassign"
                 type="Magento\InventoryLegacySynchronization\Plugin\SetDataToLegacyCatalogInventoryAtBulkTransfer"/>
     </type>
-    <type name="Magento\InventoryCatalog\Model\ResourceModel\TransferInventoryPartially">
-        <plugin name="set_data_to_legacy_catalog_inventory_at_transfer_inventory_partial"
-                type="Magento\InventoryLegacySynchronization\Plugin\SetDataToLegacyCatalogInventoryAtTransferInventoryPartial"/>
-    </type>
 </config>
