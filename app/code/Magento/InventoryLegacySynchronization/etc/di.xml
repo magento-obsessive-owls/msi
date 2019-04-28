@@ -31,11 +31,7 @@
         <plugin name="set_to_zero_legacy_catalog_inventory_at_source_items_delete"
                 type="Magento\InventoryLegacySynchronization\Plugin\SetToZeroLegacyCatalogInventoryAtSourceItemsDeletePlugin"/>
     </type>
-
-    <type name="Magento\InventoryCatalogApi\Api\BulkSourceUnassignInterface">
-        <plugin name="set_zero_quantity_to_legacy_at_bulk_unassign"
-                type="Magento\InventoryLegacySynchronization\Plugin\SetZeroQuantityToLegacyAtBulkUnassign"/>
-    </type>
+    
     <type name="Magento\InventoryCatalogApi\Api\BulkInventoryTransferInterface">
         <plugin name="set_data_to_legacy_catalog_inventory_at_bulk_unassign"
                 type="Magento\InventoryLegacySynchronization\Plugin\SetDataToLegacyCatalogInventoryAtBulkTransfer"/>
