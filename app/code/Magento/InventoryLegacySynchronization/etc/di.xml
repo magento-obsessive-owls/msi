@@ -23,10 +23,7 @@
                 type="Magento\InventoryLegacySynchronization\Plugin\UpdateSourceItemAtLegacyStockItemSavePlugin"/>
         <plugin name="priceIndexUpdater" disabled="true"/>
     </type>
-    <type name="Magento\InventoryApi\Api\SourceItemsSaveInterface">
-        <plugin name="set_data_to_legacy_catalog_inventory_at_source_items_save"
-                type="Magento\InventoryLegacySynchronization\Plugin\SetDataToLegacyCatalogInventoryAtSourceItemsSavePlugin"/>
-    </type>
+    
     <type name="Magento\InventoryApi\Api\SourceItemsDeleteInterface">
         <plugin name="set_to_zero_legacy_catalog_inventory_at_source_items_delete"
                 type="Magento\InventoryLegacySynchronization\Plugin\SetToZeroLegacyCatalogInventoryAtSourceItemsDeletePlugin"/>
