@@ -46,6 +46,13 @@ class SetDataToSourceItem
      */
     private $sourceItemsSave;
 
+    /**
+     * @param DefaultSourceProviderInterface $defaultSourceProvider
+     * @param \Magento\InventoryCatalogApi\Model\GetSkusByProductIdsInterface $getSkusByProductIds
+     * @param \Magento\InventoryCatalog\Model\GetDefaultSourceItemBySku $getDefaultSourceItemBySku
+     * @param \Magento\InventoryApi\Api\Data\SourceItemInterfaceFactory $sourceItemFactory
+     * @param \Magento\InventoryApi\Api\SourceItemsSaveInterface $sourceItemsSave
+     */
     public function __construct(
         DefaultSourceProviderInterface $defaultSourceProvider,
         \Magento\InventoryCatalogApi\Model\GetSkusByProductIdsInterface $getSkusByProductIds,
