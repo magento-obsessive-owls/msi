@@ -13,11 +13,7 @@
             <argument name="batchSize" xsi:type="number">100</argument>
         </arguments>
     </type>
-
-    <type name="Magento\CatalogInventory\Model\ResourceModel\QtyCounterInterface">
-        <plugin name="update_source_item_at_legacy_qty_counter"
-                type="Magento\InventoryLegacySynchronization\Plugin\UpdateSourceItemAtLegacyQtyCounterPlugin"/>
-    </type>
+    
     <type name="Magento\CatalogInventory\Model\ResourceModel\Stock\Item">
         <plugin name="update_source_item_at_legacy_stock_item_save"
                 type="Magento\InventoryLegacySynchronization\Plugin\UpdateSourceItemAtLegacyStockItemSavePlugin"/>
