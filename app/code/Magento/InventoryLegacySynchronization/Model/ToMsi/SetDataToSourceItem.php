@@ -47,24 +47,32 @@ class SetDataToSourceItem
     private $sourceItemsSave;
 
     /**
+     * @var \Magento\InventoryConfiguration\Model\GetLegacyStockItem
+     */
+    private $getLegacyStockItem;
+
+    /**
      * @param DefaultSourceProviderInterface $defaultSourceProvider
      * @param \Magento\InventoryCatalogApi\Model\GetSkusByProductIdsInterface $getSkusByProductIds
      * @param \Magento\InventoryCatalog\Model\GetDefaultSourceItemBySku $getDefaultSourceItemBySku
      * @param \Magento\InventoryApi\Api\Data\SourceItemInterfaceFactory $sourceItemFactory
      * @param \Magento\InventoryApi\Api\SourceItemsSaveInterface $sourceItemsSave
+     * @param \Magento\InventoryConfiguration\Model\GetLegacyStockItem $getLegacyStockItem
      */
     public function __construct(
         DefaultSourceProviderInterface $defaultSourceProvider,
         \Magento\InventoryCatalogApi\Model\GetSkusByProductIdsInterface $getSkusByProductIds,
         \Magento\InventoryCatalog\Model\GetDefaultSourceItemBySku $getDefaultSourceItemBySku,
         \Magento\InventoryApi\Api\Data\SourceItemInterfaceFactory $sourceItemFactory,
-        \Magento\InventoryApi\Api\SourceItemsSaveInterface $sourceItemsSave
+        \Magento\InventoryApi\Api\SourceItemsSaveInterface $sourceItemsSave,
+        \Magento\InventoryConfiguration\Model\GetLegacyStockItem $getLegacyStockItem
     ) {
         $this->defaultSourceProvider = $defaultSourceProvider;
         $this->getSkusByProductIds = $getSkusByProductIds;
         $this->getDefaultSourceItemBySku = $getDefaultSourceItemBySku;
         $this->sourceItemFactory = $sourceItemFactory;
         $this->sourceItemsSave = $sourceItemsSave;
+        $this->getLegacyStockItem = $getLegacyStockItem;
     }
 
     /**
@@ -75,11 +83,11 @@ class SetDataToSourceItem
     public function execute(array $legacyItemsData): void
     {
         // Temporary solution to optimize memory usage.
-        $legacyItemData = $legacyItemsData[0];
-        $legacyItemProductId = $legacyItemData[StockItemInterface::PRODUCT_ID];
+        $legacyItemProductId = $legacyItemsData[0][StockItemInterface::PRODUCT_ID];
 
         $productSku = $this->getSkusByProductIds->execute([$legacyItemProductId])[$legacyItemProductId];
         $sourceItem = $this->getDefaultSourceItemBySku->execute($productSku);
+        $legacyStockItem = $this->getLegacyStockItem->execute($productSku);
 
         if ($sourceItem === null) {
             /** @var SourceItemInterface $sourceItem */
@@ -88,8 +96,8 @@ class SetDataToSourceItem
             $sourceItem->setSku($productSku);
         }
 
-        $sourceItem->setQuantity((float)$legacyItemData[StockItemInterface::QTY]);
-        $sourceItem->setStatus((int)$legacyItemData[StockItemInterface::IS_IN_STOCK]);
+        $sourceItem->setQuantity((float)$legacyStockItem->getQty());
+        $sourceItem->setStatus((int)$legacyStockItem->getIsInStock());
 
         $this->sourceItemsSave->execute([$sourceItem]);
     }
