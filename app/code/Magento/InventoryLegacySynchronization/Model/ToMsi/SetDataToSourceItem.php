@@ -47,23 +47,13 @@ class SetDataToSourceItem
     private $sourceItemsSave;
 
     public function __construct(
-        UpdateSourceItemsData $updateSourceItemsData,
-        GetDefaultSourceItemsBySkus $getDefaultSourceItemsBySkus,
-        GetLegacyStockItemsByProductIds $getLegacyStockItemsByProductIds,
         DefaultSourceProviderInterface $defaultSourceProvider,
-        SourceItemIndexer $sourceItemIndexer,
-        ProductResourceModel $productResourceModel,
         \Magento\InventoryCatalogApi\Model\GetSkusByProductIdsInterface $getSkusByProductIds,
         \Magento\InventoryCatalog\Model\GetDefaultSourceItemBySku $getDefaultSourceItemBySku,
         \Magento\InventoryApi\Api\Data\SourceItemInterfaceFactory $sourceItemFactory,
         \Magento\InventoryApi\Api\SourceItemsSaveInterface $sourceItemsSave
     ) {
-        $this->updateSourceItemsData = $updateSourceItemsData;
         $this->defaultSourceProvider = $defaultSourceProvider;
-        $this->getLegacyStockItemsByProductIds = $getLegacyStockItemsByProductIds;
-        $this->sourceItemIndexer = $sourceItemIndexer;
-        $this->getDefaultSourceItemsBySkus = $getDefaultSourceItemsBySkus;
-        $this->productResourceModel = $productResourceModel;
         $this->getSkusByProductIds = $getSkusByProductIds;
         $this->getDefaultSourceItemBySku = $getDefaultSourceItemBySku;
         $this->sourceItemFactory = $sourceItemFactory;
