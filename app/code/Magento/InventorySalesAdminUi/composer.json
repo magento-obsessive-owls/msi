@@ -3,17 +3,17 @@
     "description": "N/A",
     "require": {
         "php": "~7.1.3||~7.2.0",
-        "magento/framework": "*",
-        "magento/module-backend": "*",
-        "magento/module-catalog-inventory": "*",
-        "magento/module-inventory-admin-ui": "*",
-        "magento/module-inventory-api": "*",
-        "magento/module-inventory-catalog-api": "*",
-        "magento/module-inventory-sales-api": "*",
-        "magento/module-inventory-configuration-api": "*",
-        "magento/module-catalog": "*",
-        "magento/module-store": "*",
-        "magento/module-ui": "*"
+        "magento/framework": "102.0.*",
+        "magento/module-backend": "101.0.*",
+        "magento/module-catalog-inventory": "100.3.*",
+        "magento/module-inventory-admin-ui": "1.0.*",
+        "magento/module-inventory-api": "1.0.*",
+        "magento/module-inventory-catalog-api": "1.1.*",
+        "magento/module-inventory-sales-api": "1.0.*",
+        "magento/module-inventory-configuration-api": "1.0.*",
+        "magento/module-catalog": "103.0.*",
+        "magento/module-store": "101.0.*",
+        "magento/module-ui": "101.1.*"
     },
     "type": "magento2-module",
     "license": [
@@ -27,5 +27,6 @@
         "psr-4": {
             "Magento\\InventorySalesAdminUi\\": ""
         }
-    }
+    },
+    "version": "1.0.5-beta"
 }
