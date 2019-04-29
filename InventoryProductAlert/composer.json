@@ -1,0 +1,31 @@
+{
+    "name": "magento/module-inventory-product-alert",
+    "description": "N/A",
+    "require": {
+        "php": "~7.1.3||~7.2.0",
+        "magento/framework": "102.0.*",
+        "magento/module-catalog": "103.0.*",
+        "magento/module-store": "101.0.*",
+        "magento/module-backend": "101.0.*",
+        "magento/module-product-alert": "100.3.*",
+        "magento/module-inventory-api": "1.0.*",
+        "magento/module-inventory-sales-api": "1.0.*"
+    },
+    "suggest": {
+        "magento/module-product-alert": ".*"
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magento\\InventoryProductAlert\\": ""
+        }
+    },
+    "version": "1.0.5-beta"
+}
