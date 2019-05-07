@@ -49,4 +49,9 @@
             <argument name="sourceItemsSave" xsi:type="object">Magento\Inventory\Model\SourceItem\Command\SourceItemsSaveWithoutLegacySynchronization</argument>
         </arguments>
     </type>
+    <type name="Magento\InventorySourceDeductionApi\Model\SourceDeductionService">
+        <arguments>
+            <argument name="sourceItemsSave" xsi:type="object">Magento\Inventory\Model\SourceItem\Command\SourceItemsSaveWithoutLegacySynchronization</argument>
+        </arguments>
+    </type>
 </config>
