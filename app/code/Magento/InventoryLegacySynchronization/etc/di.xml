@@ -23,7 +23,7 @@
                 type="Magento\InventoryLegacySynchronization\Plugin\UpdateSourceItemAtLegacyStockItemSavePlugin"/>
         <plugin name="priceIndexUpdater" disabled="true"/>
     </type>
-    <type name="Magento\InventoryApi\Api\SourceItemsSaveInterface">
+    <type name="Magento\Inventory\Model\SourceItem\Command\SourceItemsSave">
         <plugin name="set_data_to_legacy_catalog_inventory_at_source_items_save"
                 type="Magento\InventoryLegacySynchronization\Plugin\SetDataToLegacyCatalogInventoryAtSourceItemsSavePlugin"/>
     </type>
@@ -43,5 +43,10 @@
     <type name="Magento\InventoryCatalog\Model\ResourceModel\TransferInventoryPartially">
         <plugin name="set_data_to_legacy_catalog_inventory_at_transfer_inventory_partial"
                 type="Magento\InventoryLegacySynchronization\Plugin\SetDataToLegacyCatalogInventoryAtTransferInventoryPartial"/>
+    </type>
+    <type name="Magento\InventoryCatalogAdminUi\Observer\SourceItemsProcessor">
+        <arguments>
+            <argument name="sourceItemsSave" xsi:type="object">Magento\Inventory\Model\SourceItem\Command\SourceItemsSaveWithoutLegacySynchronization</argument>
+        </arguments>
     </type>
 </config>
