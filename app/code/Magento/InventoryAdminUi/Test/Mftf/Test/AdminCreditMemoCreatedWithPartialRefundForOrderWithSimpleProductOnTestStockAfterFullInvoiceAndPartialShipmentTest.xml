@@ -75,6 +75,9 @@
         <waitForPageLoad time="20" stepKey="waitForPageLoadOrder"/>
         <actionGroup ref="orderSelectFlatRateShipping" stepKey="selectFlatRateShipping"/>
         <click selector="{{AdminOrderFormActionSection.SubmitOrder}}" stepKey="clickSubmitOrder"/>
+        <waitForPageLoad stepKey="waitForOrderSubmitted"/>
+        <waitForElementNotVisible selector="{{AdminOrderFormActionSection.SubmitOrder}}" stepKey="waitForSubmitOrderButtonGone"/>
+        <waitForElementVisible selector="{{AdminOrderDetailsMessagesSection.successMessage}}" stepKey="waitForOrderSuccess"/>
         <see selector="{{AdminOrderDetailsMessagesSection.successMessage}}" userInput="You created the order." stepKey="seeSuccessMessageOrderPlaced"/>
         <grabTextFrom selector="|Order # (\d+)|" stepKey="orderNumber"/>
 
@@ -102,6 +105,9 @@
         <waitForLoadingMaskToDisappear stepKey="waitForShipLoadingMask"/>
         <fillField selector="{{AdminShipmentItemsSection.itemQtyToShip('1')}}" userInput="3" stepKey="shipPartialQuantity"/>
         <click selector="{{AdminShipmentMainActionsSection.submitShipment}}" stepKey="submitShipment"/>
+        <waitForPageLoad stepKey="waitForShipmentSubmitted"/>
+        <waitForElementNotVisible selector="{{AdminShipmentMainActionsSection.submitShipment}}" stepKey="waitForSubmitShipmentButtonGone"/>
+        <waitForElementVisible selector="{{AdminOrderDetailsMessagesSection.successMessage}}" stepKey="waitForShipmentSuccess"/>
         <see selector="{{AdminOrderDetailsMessagesSection.successMessage}}" userInput="The shipment has been created." stepKey="seeShipmentCreateSuccess"/>
 
         <!--Admin Area Create Partial Credit Memo-->
@@ -112,6 +118,8 @@
         <waitForLoadingMaskToDisappear stepKey="updateQuantityLoadingMask"/>
         <click selector="{{AdminCreditMemoTotalSection.submitRefundOffline}}" stepKey="clickSubmit"/>
         <waitForPageLoad stepKey="waitForCreditMemoSubmitted"/>
+        <waitForElementNotVisible selector="{{AdminCreditMemoTotalSection.submitRefundOffline}}" stepKey="waitForRefundOfflineButtonGone"/>
+        <waitForElementVisible selector="{{AdminOrderDetailsMessagesSection.successMessage}}" stepKey="waitForCreditMemoSuccess"/>
         <see selector="{{AdminOrderDetailsMessagesSection.successMessage}}" userInput="You created the credit memo." stepKey="seeCreditMemoCreateSuccess"/>
 
         <!--Admin Area Check quantities after Credit Memo-->
