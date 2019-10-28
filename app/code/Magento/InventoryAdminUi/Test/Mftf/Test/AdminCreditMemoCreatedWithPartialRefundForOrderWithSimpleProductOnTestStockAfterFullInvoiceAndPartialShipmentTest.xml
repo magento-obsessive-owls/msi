@@ -76,7 +76,7 @@
         <actionGroup ref="orderSelectFlatRateShipping" stepKey="selectFlatRateShipping"/>
         <click selector="{{AdminOrderFormActionSection.SubmitOrder}}" stepKey="clickSubmitOrder"/>
         <waitForPageLoad stepKey="waitForOrderSubmitted"/>
-        <waitForElementNotVisible selector="{{AdminOrderFormActionSection.SubmitOrder}}" stepKey="waitForSubmitOrderButtonGone"/>
+        <waitForElementNotVisible selector="{{AdminOrderFormActionSection.SubmitOrder}}" time="30" stepKey="waitForSubmitOrderButtonGone"/>
         <waitForElementVisible selector="{{AdminOrderDetailsMessagesSection.successMessage}}" stepKey="waitForOrderSuccess"/>
         <see selector="{{AdminOrderDetailsMessagesSection.successMessage}}" userInput="You created the order." stepKey="seeSuccessMessageOrderPlaced"/>
         <grabTextFrom selector="|Order # (\d+)|" stepKey="orderNumber"/>
@@ -106,7 +106,7 @@
         <fillField selector="{{AdminShipmentItemsSection.itemQtyToShip('1')}}" userInput="3" stepKey="shipPartialQuantity"/>
         <click selector="{{AdminShipmentMainActionsSection.submitShipment}}" stepKey="submitShipment"/>
         <waitForPageLoad stepKey="waitForShipmentSubmitted"/>
-        <waitForElementNotVisible selector="{{AdminShipmentMainActionsSection.submitShipment}}" stepKey="waitForSubmitShipmentButtonGone"/>
+        <waitForElementNotVisible selector="{{AdminShipmentMainActionsSection.submitShipment}}" time="30" stepKey="waitForSubmitShipmentButtonGone"/>
         <waitForElementVisible selector="{{AdminOrderDetailsMessagesSection.successMessage}}" stepKey="waitForShipmentSuccess"/>
         <see selector="{{AdminOrderDetailsMessagesSection.successMessage}}" userInput="The shipment has been created." stepKey="seeShipmentCreateSuccess"/>
 
@@ -118,7 +118,7 @@
         <waitForLoadingMaskToDisappear stepKey="updateQuantityLoadingMask"/>
         <click selector="{{AdminCreditMemoTotalSection.submitRefundOffline}}" stepKey="clickSubmit"/>
         <waitForPageLoad stepKey="waitForCreditMemoSubmitted"/>
-        <waitForElementNotVisible selector="{{AdminCreditMemoTotalSection.submitRefundOffline}}" stepKey="waitForRefundOfflineButtonGone"/>
+        <waitForElementNotVisible selector="{{AdminCreditMemoTotalSection.submitRefundOffline}}" time="30" stepKey="waitForRefundOfflineButtonGone"/>
         <waitForElementVisible selector="{{AdminOrderDetailsMessagesSection.successMessage}}" stepKey="waitForCreditMemoSuccess"/>
         <see selector="{{AdminOrderDetailsMessagesSection.successMessage}}" userInput="You created the credit memo." stepKey="seeCreditMemoCreateSuccess"/>
 
